@@ -88,6 +88,10 @@ The largest quarter-over-quarter increase in AI adoption occurred between 2022-Q
 
 Four industries combined high automation susceptibility with low AI investment: Manufacturing, Public Health, Construction, and Real Estate. These industries may require targeted reskilling support because their exposure to automation appears higher than their current investment readiness.
 
+### Manual Skilled Trades Shows the Largest Skill-Level Reskilling Gap
+
+Manual Skilled Trades had the highest AI replaceability score, the largest number of displaced jobs, the worst net job change, and the lowest reskilling spend per displaced job. This suggests a major mismatch between disruption and reskilling support.
+
 ## Next Steps
 
 - Analyze quarter-over-quarter AI adoption trends

@@ -93,3 +93,45 @@ GROUP BY
 ORDER BY
     avg_automation_susceptibility DESC,
     avg_ai_investment_pct_revenue ASC;
+
+-- ============================================================
+-- 4. Skill Category Displacement Risk
+-- Business Question:
+-- Which skill categories carry the highest displacement risk,
+-- and is reskilling investment proportional to that risk?
+-- ============================================================
+
+SELECT
+    skill_category_name,
+    skill_category_code,
+    typical_education_level,
+    ROUND(AVG(ai_replaceability_score), 2) AS avg_ai_replaceability_score,
+    ROUND(AVG(ai_augmentation_potential), 2) AS avg_ai_augmentation_potential,
+    ROUND(AVG(median_reskilling_duration_months), 2) AS avg_reskilling_duration_months,
+    ROUND(AVG(ai_adoption_rate), 2) AS avg_ai_adoption_rate,
+    ROUND(AVG(displacement_risk_index), 2) AS avg_displacement_risk,
+    SUM(jobs_displaced_count) AS total_jobs_displaced,
+    SUM(jobs_created_count) AS total_jobs_created,
+    SUM(jobs_created_count) - SUM(jobs_displaced_count) AS net_jobs_change,
+    ROUND(SUM(reskilling_investment_usd), 2) AS total_reskilling_investment,
+    ROUND(SUM(reskilling_investment_usd) / NULLIF(SUM(jobs_displaced_count), 0), 2) AS reskilling_spend_per_displaced_job,
+    CASE
+        WHEN AVG(ai_replaceability_score) >= 70
+         AND AVG(median_reskilling_duration_months) >= 12
+        THEN 'High Replaceability / Long Reskilling'
+        WHEN AVG(ai_replaceability_score) >= 70
+         AND AVG(median_reskilling_duration_months) < 12
+        THEN 'High Replaceability / Shorter Reskilling'
+        WHEN AVG(ai_replaceability_score) < 70
+         AND AVG(median_reskilling_duration_months) >= 12
+        THEN 'Lower Replaceability / Long Reskilling'
+        ELSE 'Lower Replaceability / Shorter Reskilling'
+    END AS skill_risk_category
+FROM workforce_ai_analysis
+GROUP BY
+    skill_category_name,
+    skill_category_code,
+    typical_education_level
+ORDER BY
+    avg_displacement_risk DESC,
+    total_jobs_displaced DESC;

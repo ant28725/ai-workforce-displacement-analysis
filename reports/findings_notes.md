@@ -91,3 +91,40 @@ Retail & E-commerce also has high automation susceptibility and the largest net 
 ### Portfolio Narrative
 
 The industry-level analysis shows that AI workforce risk is not only about automation exposure. Preparedness matters. Industries such as Manufacturing and Public Health show high susceptibility but limited AI investment, making them priority candidates for targeted reskilling support and policy intervention.
+
+---
+
+## 4. Skill Category Displacement Risk
+
+### Business Question
+
+Which skill categories carry the highest displacement risk, and is reskilling investment proportional to that risk?
+
+### Query Summary
+
+The analysis groups records by skill category and compares AI replaceability, AI augmentation potential, reskilling duration, AI adoption, displacement risk, jobs displaced, jobs created, net job change, total reskilling investment, and reskilling spend per displaced job.
+
+Skill risk categories were classified using the following logic:
+
+- High AI replaceability: AI replaceability score of 70 or higher
+- Long reskilling duration: median reskilling duration of 12 months or longer
+
+### Key Results
+
+| Skill Category | Replaceability Score | Reskilling Duration | Avg Displacement Risk | Total Jobs Displaced | Net Jobs Change | Spend per Displaced Job |
+|---|---:|---:|---:|---:|---:|---:|
+| Manual Skilled Trades | 79.60 | 4.90 | 4.26 | 102,298 | -60,528 | $30.98 |
+| Manual & Physical | 36.90 | 14.90 | 4.56 | 91,444 | -42,717 | $61.91 |
+| Administrative & Clerical | 48.40 | 8.20 | 4.24 | 84,319 | -38,270 | $88.22 |
+| Managerial & Strategic | 29.10 | 7.60 | 3.96 | 74,970 | -38,453 | $113.69 |
+| Social & Interpersonal | 42.10 | 7.00 | 4.33 | 66,904 | -35,055 | $188.29 |
+
+### Key Insight
+
+Manual Skilled Trades is the most urgent skill category for intervention. It has the highest AI replaceability score, the largest number of displaced jobs, the worst net job change, and the lowest reskilling spend per displaced job. This suggests that investment is not keeping pace with the scale of disruption in this category.
+
+Manual & Physical roles also show significant concern. This category has the highest average displacement risk and a long reskilling duration of 14.90 months, indicating that affected workers may require longer-term training support.
+
+### Portfolio Narrative
+
+The skill-level analysis shows that AI workforce disruption is not limited to office-based or administrative roles. Manual Skilled Trades and Manual & Physical roles show some of the strongest displacement signals, suggesting that policy responses should include vocational and applied reskilling pathways, not only digital upskilling programs.
