@@ -1,0 +1,89 @@
+# AI Workforce Displacement Analysis
+
+## Project Overview
+
+This project analyzes how artificial intelligence adoption is reshaping employment across countries, industries, and skill categories between 2021 and 2024. The analysis focuses especially on the shift after generative AI tools became mainstream in late 2022.
+
+The goal is to identify which countries, industries, and skill groups are most exposed to AI-driven workforce displacement, where job creation is failing to offset job losses, and where reskilling investment may not be keeping pace with disruption.
+
+## Business Problem
+
+Governments and employers need to understand how AI adoption is affecting labor markets so they can prioritize reskilling investments, support vulnerable worker segments, and prepare for future workforce disruption.
+
+This analysis investigates:
+
+- How AI adoption changed before and after the generative AI era
+- Which industries and skill categories face the highest displacement risk
+- Whether job creation is offsetting job displacement
+- Whether reskilling investment is proportional to workforce disruption
+- How country-level factors such as digital infrastructure and AI policy maturity relate to employment outcomes
+
+## Dataset
+
+The dataset is a synthetic workforce AI index containing 300 fact records across:
+
+- 30 countries
+- 25 industries
+- 8 skill categories
+- 16 quarters from 2021-Q1 to 2024-Q4
+
+The data follows a star schema with one fact table and four dimension tables.
+
+## Tools Used
+
+- PostgreSQL
+- SQL
+- Tableau
+- GitHub
+- VS Code
+
+## Repository Structure
+
+ai-workforce-displacement-analysis/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── sql/
+│   ├── 01_create_tables.sql
+│   ├── 02_import_data.sql
+│   ├── 03_create_analysis_view.sql
+│   └── 04_analysis_queries.sql
+│
+├── reports/
+│   └── findings_notes.md
+│
+├── tableau/
+│
+└── README.md
+
+## Key Metrics
+
+- AI adoption rate
+- AI tool usage hours per week
+- Displacement risk index
+- Jobs displaced
+- Jobs created
+- Net jobs change
+- Reskilling investment
+- Reskilling spend per displaced job
+- Job creation-to-displacement ratio
+
+## Initial Findings
+
+### AI Adoption Accelerated in the GenAI Era
+
+Average AI adoption increased from 20.37% before the GenAI era to 38.61% during the GenAI era. Weekly AI tool usage also increased from 2.75 hours to 6.42 hours.
+
+### Job Creation Did Not Keep Pace With Displacement
+
+Although job creation increased during the GenAI era, displacement increased more sharply. Net job losses widened from -95,677 before the GenAI era to -194,753 during the GenAI era.
+
+## Next Steps
+
+- Analyze quarter-over-quarter AI adoption trends
+- Identify industries with high automation risk and low AI investment
+- Compare displacement risk across skill categories
+- Evaluate country-level differences by development tier and region
+- Build Tableau dashboards for executive and policy audiences
