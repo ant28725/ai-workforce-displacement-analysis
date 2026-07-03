@@ -26,3 +26,31 @@ Although job creation increased during the GenAI era, it did not keep pace with 
 ### Portfolio Narrative
 
 AI adoption is scaling faster than labor markets are absorbing the disruption. This creates a policy challenge: reskilling investment is increasing, but job displacement continues to outpace job creation.
+
+---
+
+## 2. Quarter-over-Quarter AI Adoption and Displacement Trend
+
+### Business Question
+
+How have AI adoption, AI usage, displacement, and job creation changed over time from 2021-Q1 to 2024-Q4?
+
+### Query Summary
+
+The analysis groups the workforce AI records by year and quarter to identify changes in AI adoption, AI tool usage, displacement risk, jobs displaced, jobs created, net job change, and reskilling investment over time.
+
+### Results Summary
+
+AI adoption was relatively stable before the GenAI era, generally ranging from the high teens to low twenties. The largest shift occurred in 2022-Q4, when average AI adoption increased from 22.48% in 2022-Q3 to 40.23% in 2022-Q4.
+
+Weekly AI usage also rose sharply during the same period, increasing from 2.65 hours per week in 2022-Q3 to 6.10 hours per week in 2022-Q4.
+
+### Key Insight
+
+The start of the GenAI era marked a clear inflection point in workforce AI adoption. Before 2022-Q4, average adoption remained relatively moderate. After 2022-Q4, adoption stayed elevated, reaching a peak of 45.70% in 2024-Q1.
+
+Job displacement did not increase in a perfectly linear pattern, but several GenAI-era quarters showed severe negative job outcomes. The largest net job loss occurred in 2023-Q2, when jobs displaced exceeded jobs created by 53,068.
+
+### Portfolio Narrative
+
+Generative AI appears to have accelerated workplace AI adoption almost immediately. However, labor market impacts were uneven across quarters, suggesting that displacement pressure may depend not only on adoption levels, but also on industry mix, country characteristics, skill exposure, and investment readiness.

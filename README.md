@@ -80,6 +80,10 @@ Average AI adoption increased from 20.37% before the GenAI era to 38.61% during 
 
 Although job creation increased during the GenAI era, displacement increased more sharply. Net job losses widened from -95,677 before the GenAI era to -194,753 during the GenAI era.
 
+### AI Adoption Jumped Sharply in 2022-Q4
+
+The largest quarter-over-quarter increase in AI adoption occurred between 2022-Q3 and 2022-Q4, when average adoption rose from 22.48% to 40.23%. Weekly AI usage also rose from 2.65 to 6.10 hours during the same period, marking a clear GenAI-era inflection point.
+
 ## Next Steps
 
 - Analyze quarter-over-quarter AI adoption trends
