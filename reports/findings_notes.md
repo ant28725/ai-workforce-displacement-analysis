@@ -54,3 +54,40 @@ Job displacement did not increase in a perfectly linear pattern, but several Gen
 ### Portfolio Narrative
 
 Generative AI appears to have accelerated workplace AI adoption almost immediately. However, labor market impacts were uneven across quarters, suggesting that displacement pressure may depend not only on adoption levels, but also on industry mix, country characteristics, skill exposure, and investment readiness.
+
+---
+
+## 3. Industry Risk and Investment Preparedness
+
+### Business Question
+
+Which industries combine high automation susceptibility, high displacement risk, and low AI investment, suggesting under-preparedness for AI-driven workforce disruption?
+
+### Query Summary
+
+The analysis groups records by industry and compares automation susceptibility, AI investment as a percentage of revenue, AI adoption, displacement risk, jobs displaced, jobs created, net job change, and reskilling spend per displaced job.
+
+Industries were classified using the following preparedness logic:
+
+- High automation susceptibility: automation susceptibility of 70 or higher
+- Low AI investment: average AI investment below 3% of revenue
+
+### Key Results
+
+| Industry | Sector | Automation Susceptibility | AI Investment % Revenue | Avg AI Adoption Rate | Avg Displacement Risk | Net Jobs Change | Preparedness Category |
+|---|---|---:|---:|---:|---:|---:|---|
+| Manufacturing | Industrial | 95.00 | 1.80 | 25.14 | 3.96 | -15,182 | High Risk / Low Investment |
+| Public Health | Healthcare | 95.00 | 2.09 | 26.33 | 3.89 | -13,996 | High Risk / Low Investment |
+| Construction | Industrial | 89.50 | 2.48 | 31.20 | 4.44 | -5,362 | High Risk / Low Investment |
+| Real Estate | Finance | 73.30 | 1.40 | 23.46 | 3.38 | -8,220 | High Risk / Low Investment |
+| Retail & E-commerce | Consumer | 73.60 | 3.30 | 33.22 | 4.78 | -25,250 | High Risk / Higher Investment |
+
+### Key Insight
+
+Manufacturing, Public Health, Construction, and Real Estate appear to be the most underprepared industries. Each has high automation susceptibility but relatively low AI investment as a share of revenue. This suggests these industries may face elevated workforce disruption without proportional investment in AI readiness, worker transition planning, or reskilling.
+
+Retail & E-commerce also has high automation susceptibility and the largest net job loss among the high-susceptibility industries, but its AI investment is slightly above the low-investment threshold. This suggests Retail & E-commerce is highly exposed, but may already be investing more actively in AI transformation.
+
+### Portfolio Narrative
+
+The industry-level analysis shows that AI workforce risk is not only about automation exposure. Preparedness matters. Industries such as Manufacturing and Public Health show high susceptibility but limited AI investment, making them priority candidates for targeted reskilling support and policy intervention.

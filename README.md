@@ -84,6 +84,10 @@ Although job creation increased during the GenAI era, displacement increased mor
 
 The largest quarter-over-quarter increase in AI adoption occurred between 2022-Q3 and 2022-Q4, when average adoption rose from 22.48% to 40.23%. Weekly AI usage also rose from 2.65 to 6.10 hours during the same period, marking a clear GenAI-era inflection point.
 
+### Manufacturing, Public Health, Construction, and Real Estate Appear Underprepared
+
+Four industries combined high automation susceptibility with low AI investment: Manufacturing, Public Health, Construction, and Real Estate. These industries may require targeted reskilling support because their exposure to automation appears higher than their current investment readiness.
+
 ## Next Steps
 
 - Analyze quarter-over-quarter AI adoption trends
