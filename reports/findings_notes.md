@@ -94,6 +94,8 @@ The industry-level analysis shows that AI workforce risk is not only about autom
 
 ---
 
+---
+
 ## 4. Skill Category Displacement Risk
 
 ### Business Question
