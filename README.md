@@ -39,17 +39,26 @@ The data follows a star schema with one fact table and four dimension tables.
 
 ## Repository Structure
 
+```text
 ai-workforce-displacement-analysis/
 │
 ├── data/
 │   ├── raw/
+│   │   ├── dim_country.csv
+│   │   ├── dim_date.csv
+│   │   ├── dim_industry.csv
+│   │   ├── dim_skill_category.csv
+│   │   └── fact_workforce_ai_index.csv
+│   │
 │   └── processed/
+│       └── workforce_ai_analysis_export.csv
 │
 ├── sql/
 │   ├── 01_create_tables.sql
 │   ├── 02_import_data.sql
 │   ├── 03_create_analysis_view.sql
-│   └── 04_analysis_queries.sql
+│   ├── 04_analysis_queries.sql
+│   └── 05_export_tableau_dataset.sql
 │
 ├── reports/
 │   └── findings_notes.md
@@ -57,6 +66,7 @@ ai-workforce-displacement-analysis/
 ├── tableau/
 │
 └── README.md
+```
 
 ## Key Metrics
 
@@ -105,6 +115,22 @@ At the country-industry level, France's Media & Entertainment sector showed the 
 ### Data Quality Check Supports the Overall Findings
 
 The dataset contained no missing values in key analytical fields. Although 20% of records were classified as low confidence, negative net job change appeared across high-, medium-, and low-confidence records, suggesting the overall displacement trend is not driven only by low-confidence data.
+
+## Tableau Dataset
+
+The joined analytical view was exported from PostgreSQL into a Tableau-ready CSV:
+
+```text
+data/processed/workforce_ai_analysis_export.csv
+```
+
+This file combines the fact table with the country, date, industry, and skill category dimensions. It includes calculated fields such as:
+
+- Net jobs change
+- Job creation-to-displacement ratio
+- Reskilling spend per displaced job
+
+This export is used as the primary data source for the Tableau dashboard.
 
 ## Next Steps
 

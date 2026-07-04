@@ -254,7 +254,7 @@ ORDER BY
     avg_displacement_risk DESC,
     reskilling_spend_per_displaced_job ASC;
 
-    -- ============================================================
+-- ============================================================
 -- 7. Data Quality and Confidence Check
 -- Business Question:
 -- How reliable are the records in the dataset, and are any
