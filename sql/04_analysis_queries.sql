@@ -210,3 +210,46 @@ GROUP BY
     ai_policy_maturity
 ORDER BY
     net_jobs_change ASC;
+
+-- ============================================================
+-- 6. Industry-Level Reskilling Investment Gap
+-- Business Question:
+-- Is reskilling investment keeping pace with job displacement
+-- at an industry level?
+-- ============================================================
+
+SELECT
+    industry_name,
+    industry_sector,
+    ROUND(AVG(displacement_risk_index), 2) AS avg_displacement_risk,
+    SUM(jobs_displaced_count) AS total_jobs_displaced,
+    SUM(jobs_created_count) AS total_jobs_created,
+    SUM(jobs_created_count) - SUM(jobs_displaced_count) AS net_jobs_change,
+    ROUND(SUM(reskilling_investment_usd), 2) AS total_reskilling_investment,
+    ROUND(
+        SUM(reskilling_investment_usd) / NULLIF(SUM(jobs_displaced_count), 0),
+        2
+    ) AS reskilling_spend_per_displaced_job,
+    ROUND(
+        SUM(jobs_created_count)::numeric / NULLIF(SUM(jobs_displaced_count), 0),
+        2
+    ) AS job_creation_displacement_ratio,
+    CASE
+        WHEN ROUND(AVG(displacement_risk_index), 2) >= 4.5
+         AND ROUND(SUM(reskilling_investment_usd) / NULLIF(SUM(jobs_displaced_count), 0), 2) < 100
+        THEN 'High Risk / Low Reskilling Spend'
+        WHEN ROUND(AVG(displacement_risk_index), 2) >= 4.5
+         AND ROUND(SUM(reskilling_investment_usd) / NULLIF(SUM(jobs_displaced_count), 0), 2) >= 100
+        THEN 'High Risk / Higher Reskilling Spend'
+        WHEN ROUND(AVG(displacement_risk_index), 2) < 4.5
+         AND ROUND(SUM(reskilling_investment_usd) / NULLIF(SUM(jobs_displaced_count), 0), 2) < 100
+        THEN 'Lower Risk / Low Reskilling Spend'
+        ELSE 'Lower Risk / Higher Reskilling Spend'
+    END AS reskilling_gap_category
+FROM workforce_ai_analysis
+GROUP BY
+    industry_name,
+    industry_sector
+ORDER BY
+    avg_displacement_risk DESC,
+    reskilling_spend_per_displaced_job ASC;

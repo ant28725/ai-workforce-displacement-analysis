@@ -96,6 +96,12 @@ Manual Skilled Trades had the highest AI replaceability score, the largest numbe
 
 Emerging Asia-Pacific recorded one of the largest regional net job losses and the weakest job creation-to-displacement ratio. At the country level, India had the weakest job creation-to-displacement ratio, while China and India showed some of the highest displacement risk scores.
 
+### Food & Beverage, Automotive, and Retail Show Major Reskilling Gaps
+
+Food & Beverage, Automotive, and Retail & E-commerce combined high displacement risk with low reskilling spend per displaced job. These industries appear to be priority areas for targeted reskilling investment.
+
+At the country-industry level, France's Media & Entertainment sector showed the largest reskilling shortfall, with high displacement risk, large net job losses, and very low reskilling spend per displaced worker.
+
 ## Next Steps
 
 - Analyze quarter-over-quarter AI adoption trends

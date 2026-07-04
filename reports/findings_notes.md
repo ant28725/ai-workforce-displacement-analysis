@@ -183,3 +183,30 @@ Developed North America shows the strongest regional job creation-to-displacemen
 ### Portfolio Narrative
 
 The country-level analysis shows that AI adoption alone does not determine workforce outcomes. Some emerging economies are adopting AI at rates comparable to developed regions, but their ability to offset displacement through job creation varies widely. Regions with stronger reskilling investment and labor-market absorption appear better positioned to manage AI-driven disruption, while Emerging Asia-Pacific and selected European countries show larger employment gaps.
+
+---
+
+## 6. Reskilling Investment Gap Analysis
+
+### Business Question
+
+Where is reskilling investment failing to keep pace with job displacement?
+
+### Query Summary
+
+The analysis evaluates whether reskilling investment is proportional to AI-linked job displacement. Two levels of analysis were used:
+
+1. Industry-level reskilling gap analysis
+2. Country-industry shortfall ranking
+
+For the industry-level analysis, industries were classified using the following logic:
+
+- High displacement risk: average displacement risk index of 4.5 or higher
+- Low reskilling spend: less than $100 in reskilling investment per displaced job
+
+A custom `reskilling_shortfall_score` was also created to prioritize country-industry combinations where displacement risk and displaced jobs are high relative to reskilling investment.
+
+The shortfall score is calculated as:
+
+```text
+average displacement risk × jobs displaced ÷ reskilling investment in millions
