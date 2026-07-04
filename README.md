@@ -92,6 +92,10 @@ Four industries combined high automation susceptibility with low AI investment: 
 
 Manual Skilled Trades had the highest AI replaceability score, the largest number of displaced jobs, the worst net job change, and the lowest reskilling spend per displaced job. This suggests a major mismatch between disruption and reskilling support.
 
+### Emerging Asia-Pacific Shows the Weakest Job Offset
+
+Emerging Asia-Pacific recorded one of the largest regional net job losses and the weakest job creation-to-displacement ratio. At the country level, India had the weakest job creation-to-displacement ratio, while China and India showed some of the highest displacement risk scores.
+
 ## Next Steps
 
 - Analyze quarter-over-quarter AI adoption trends

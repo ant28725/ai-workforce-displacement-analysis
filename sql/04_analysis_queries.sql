@@ -135,3 +135,78 @@ GROUP BY
 ORDER BY
     avg_displacement_risk DESC,
     total_jobs_displaced DESC;
+
+-- ============================================================
+-- 5. Country and Development Tier Patterns
+-- Business Question:
+-- Are developed and emerging economies adopting AI at different
+-- rates, and what does that imply for displacement, job creation,
+-- and reskilling needs?
+-- ============================================================
+
+SELECT
+    development_tier,
+    region,
+    COUNT(*) AS records,
+    COUNT(DISTINCT country_name) AS countries,
+    ROUND(AVG(ai_adoption_rate), 2) AS avg_ai_adoption_rate,
+    ROUND(AVG(ai_tool_usage_hours_per_week), 2) AS avg_ai_usage_hours_per_week,
+    ROUND(AVG(displacement_risk_index), 2) AS avg_displacement_risk,
+    ROUND(AVG(digital_infrastructure_score), 2) AS avg_digital_infrastructure_score,
+    ROUND(AVG(stem_graduates_per_100k), 2) AS avg_stem_graduates_per_100k,
+    SUM(jobs_displaced_count) AS total_jobs_displaced,
+    SUM(jobs_created_count) AS total_jobs_created,
+    SUM(jobs_created_count) - SUM(jobs_displaced_count) AS net_jobs_change,
+    ROUND(
+        SUM(jobs_created_count)::numeric / NULLIF(SUM(jobs_displaced_count), 0),
+        2
+    ) AS job_creation_displacement_ratio,
+    ROUND(SUM(reskilling_investment_usd), 2) AS total_reskilling_investment,
+    ROUND(
+        SUM(reskilling_investment_usd) / NULLIF(SUM(jobs_displaced_count), 0),
+        2
+    ) AS reskilling_spend_per_displaced_job
+FROM workforce_ai_analysis
+GROUP BY
+    development_tier,
+    region
+ORDER BY
+    development_tier,
+    avg_ai_adoption_rate DESC;
+
+-- ============================================================
+-- 5B. Country-Level AI Adoption and Job Outcome Ranking
+-- Business Question:
+-- Which countries show the highest AI adoption, highest displacement,
+-- and weakest job creation-to-displacement ratios?
+-- ============================================================
+
+SELECT
+    country_name,
+    region,
+    development_tier,
+    ai_policy_maturity,
+    ROUND(AVG(digital_infrastructure_score), 2) AS avg_digital_infrastructure_score,
+    ROUND(AVG(stem_graduates_per_100k), 2) AS avg_stem_graduates_per_100k,
+    ROUND(AVG(ai_adoption_rate), 2) AS avg_ai_adoption_rate,
+    ROUND(AVG(displacement_risk_index), 2) AS avg_displacement_risk,
+    SUM(jobs_displaced_count) AS total_jobs_displaced,
+    SUM(jobs_created_count) AS total_jobs_created,
+    SUM(jobs_created_count) - SUM(jobs_displaced_count) AS net_jobs_change,
+    ROUND(
+        SUM(jobs_created_count)::numeric / NULLIF(SUM(jobs_displaced_count), 0),
+        2
+    ) AS job_creation_displacement_ratio,
+    ROUND(SUM(reskilling_investment_usd), 2) AS total_reskilling_investment,
+    ROUND(
+        SUM(reskilling_investment_usd) / NULLIF(SUM(jobs_displaced_count), 0),
+        2
+    ) AS reskilling_spend_per_displaced_job
+FROM workforce_ai_analysis
+GROUP BY
+    country_name,
+    region,
+    development_tier,
+    ai_policy_maturity
+ORDER BY
+    net_jobs_change ASC;
