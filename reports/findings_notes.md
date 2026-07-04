@@ -210,3 +210,58 @@ The shortfall score is calculated as:
 
 ```text
 average displacement risk × jobs displaced ÷ reskilling investment in millions
+
+---
+
+## 7. Data Quality and Confidence Check
+
+### Business Question
+
+How reliable are the records in the dataset, and are any major findings affected by low-confidence data?
+
+### Query Summary
+
+The analysis groups records by `data_confidence_score` to evaluate whether major findings are supported by high-confidence data or disproportionately influenced by lower-confidence records.
+
+Records were classified using the following confidence levels:
+
+- High Confidence: data confidence score of 0.85 or higher
+- Medium Confidence: data confidence score from 0.70 to 0.84
+- Low Confidence: data confidence score below 0.70
+
+A missing-value check was also performed across key analytical fields.
+
+### Confidence-Level Results
+
+| Confidence Level | Records | Avg Confidence Score | Avg AI Adoption Rate | Avg Displacement Risk | Jobs Displaced | Jobs Created | Net Jobs Change | Reskilling Investment |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| High Confidence | 118 | 0.91 | 31.19 | 4.52 | 203,370 | 105,714 | -97,656 | $22,040,475.77 |
+| Medium Confidence | 122 | 0.78 | 29.21 | 4.20 | 272,531 | 134,585 | -137,946 | $20,123,569.34 |
+| Low Confidence | 60 | 0.60 | 32.49 | 3.90 | 110,884 | 56,056 | -54,828 | $19,487,440.09 |
+
+### Missing Value Results
+
+The dataset contains 300 total records and no missing values in the following key fields:
+
+- AI adoption rate
+- Displacement risk index
+- Jobs displaced count
+- Jobs created count
+- Reskilling investment
+- Data confidence score
+- Country name
+- Industry name
+- Skill category name
+- Year-quarter label
+
+### Key Insight
+
+The dataset is complete across all key analytical fields, with no missing values detected. However, 60 of the 300 records fall into the low-confidence category, representing 20% of the dataset.
+
+The overall workforce disruption pattern is not driven only by low-confidence records. High-confidence, medium-confidence, and low-confidence records all show negative net job change, meaning job displacement exceeds job creation across every confidence level.
+
+However, some highly specific country-industry outliers include low-confidence records. For example, India Automotive, Germany Hospitality & Tourism, and Poland Professional Services show large displacement values but have confidence scores below 0.70. These findings should be treated as directional signals rather than definitive conclusions.
+
+### Portfolio Narrative
+
+The data quality review strengthens the overall analysis because the core findings remain visible across confidence levels. At the same time, the presence of low-confidence outliers supports a careful policy recommendation: broad funding priorities can be identified from the dataset, but specific country-industry allocations should be validated with additional labor-market data before final decisions are made.

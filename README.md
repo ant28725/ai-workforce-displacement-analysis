@@ -102,6 +102,10 @@ Food & Beverage, Automotive, and Retail & E-commerce combined high displacement 
 
 At the country-industry level, France's Media & Entertainment sector showed the largest reskilling shortfall, with high displacement risk, large net job losses, and very low reskilling spend per displaced worker.
 
+### Data Quality Check Supports the Overall Findings
+
+The dataset contained no missing values in key analytical fields. Although 20% of records were classified as low confidence, negative net job change appeared across high-, medium-, and low-confidence records, suggesting the overall displacement trend is not driven only by low-confidence data.
+
 ## Next Steps
 
 - Analyze quarter-over-quarter AI adoption trends

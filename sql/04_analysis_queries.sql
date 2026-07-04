@@ -253,3 +253,80 @@ GROUP BY
 ORDER BY
     avg_displacement_risk DESC,
     reskilling_spend_per_displaced_job ASC;
+
+    -- ============================================================
+-- 7. Data Quality and Confidence Check
+-- Business Question:
+-- How reliable are the records in the dataset, and are any
+-- major findings affected by low-confidence data?
+-- ============================================================
+
+SELECT
+    CASE
+        WHEN data_confidence_score >= 0.85 THEN 'High Confidence'
+        WHEN data_confidence_score >= 0.70 THEN 'Medium Confidence'
+        ELSE 'Low Confidence'
+    END AS confidence_level,
+    COUNT(*) AS records,
+    ROUND(AVG(data_confidence_score), 2) AS avg_data_confidence_score,
+    ROUND(AVG(ai_adoption_rate), 2) AS avg_ai_adoption_rate,
+    ROUND(AVG(displacement_risk_index), 2) AS avg_displacement_risk,
+    SUM(jobs_displaced_count) AS total_jobs_displaced,
+    SUM(jobs_created_count) AS total_jobs_created,
+    SUM(jobs_created_count) - SUM(jobs_displaced_count) AS net_jobs_change,
+    ROUND(SUM(reskilling_investment_usd), 2) AS total_reskilling_investment
+FROM workforce_ai_analysis
+GROUP BY
+    confidence_level
+ORDER BY
+    avg_data_confidence_score DESC;
+
+-- ============================================================
+-- 7B. Lowest Confidence Records With High Displacement
+-- Business Question:
+-- Which records have the lowest confidence scores but high
+-- displacement counts?
+-- ============================================================
+
+SELECT
+    country_name,
+    region,
+    development_tier,
+    industry_name,
+    skill_category_name,
+    year_quarter_label,
+    data_confidence_score,
+    ai_adoption_rate,
+    displacement_risk_index,
+    jobs_displaced_count,
+    jobs_created_count,
+    jobs_created_count - jobs_displaced_count AS net_jobs_change,
+    reskilling_investment_usd
+FROM workforce_ai_analysis
+WHERE data_confidence_score < 0.70
+ORDER BY
+    jobs_displaced_count DESC,
+    data_confidence_score ASC
+LIMIT 20;
+
+-- ============================================================
+-- 7C. Missing Value Check
+-- Business Question:
+-- Are there missing values in key analytical fields?
+-- ============================================================
+
+SELECT
+    COUNT(*) AS total_records,
+
+    COUNT(*) - COUNT(ai_adoption_rate) AS missing_ai_adoption_rate,
+    COUNT(*) - COUNT(displacement_risk_index) AS missing_displacement_risk_index,
+    COUNT(*) - COUNT(jobs_displaced_count) AS missing_jobs_displaced_count,
+    COUNT(*) - COUNT(jobs_created_count) AS missing_jobs_created_count,
+    COUNT(*) - COUNT(reskilling_investment_usd) AS missing_reskilling_investment_usd,
+    COUNT(*) - COUNT(data_confidence_score) AS missing_data_confidence_score,
+
+    COUNT(*) - COUNT(country_name) AS missing_country_name,
+    COUNT(*) - COUNT(industry_name) AS missing_industry_name,
+    COUNT(*) - COUNT(skill_category_name) AS missing_skill_category_name,
+    COUNT(*) - COUNT(year_quarter_label) AS missing_year_quarter_label
+FROM workforce_ai_analysis;
