@@ -8,7 +8,7 @@ SELECT
     d.period_start_date,
     d.is_pandemic_period,
     d.generative_ai_era,
-
+ 
     c.country_id,
     c.country_code,
     c.country_name,
